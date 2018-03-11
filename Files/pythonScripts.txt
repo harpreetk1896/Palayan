@@ -1,0 +1,85 @@
+import requests
+url = ('https://newsapi.org/v2/everything?'
+		'sources=the-times-of-india,the-hindu,google-news-in&'
+       'q=Delhi AND (traffic OR safety)&'
+        'from=2018-01-01&'
+       'sortBy=popularity&'
+       'apiKey=020ed39b89e04ee69d9baa400753a07f')
+response = requests.get(url)
+file = open("res.json", "w")
+file.write(response.content)
+file.close()			
+
+1/3/18 -- Filtering out the results by modifying the url used in API calling
+			-added Indian sources 
+			-writing keywords in query parameter
+
+
+
+https://newsapi.org/v2/everything?sources=the-times-of-india,the-hindu,google-news-in&q=Delhi AND (traffic OR safety)&from=2018-01-01&sortBy=popularity&apiKey=020ed39b89e04ee69d9baa400753a07f
+
+file2 = open("result.txt", "w")
+file=open("url.txt","r")
+for line in file:
+   line=line.rstrip()
+   response=requests.get(line)
+   file = open("res.json", "w")
+   file.write(response.content)
+   file.close()
+   connection_file = open('res.json', 'r')
+   conn_string = json.load(connection_file)
+   r=conn_string['totalResults']
+   file2.write(str(r))
+   
+import requests
+file=open("Major_cities.txt","r")
+file2 = open("Traffic.txt", "w")
+for line in file:
+    line=line.rstrip()
+    page=requests.get("https://www.numbeo.com/traffic/in/"+line)
+	from bs4 import BeautifulSoup
+	soup = BeautifulSoup(page.content, 'html.parser')
+	for el in soup.find_all(class_="table_indices"):
+	  k=el
+
+	var = list(k.children)[3]
+	var2 = list(var.children)[2]
+	val= var2.get_text()
+    val=val.lstrip()
+	file2.write(line+" "+val+"\n")
+
+https://www.numbeo.com/traffic/in/Kolkata
+
+page=requests.get("https://www.numbeo.com/traffic/in/Kolkata")
+from bs4 import BeautifulSoup
+soup = BeautifulSoup(page.content, 'html.parser')
+for el in soup.find_all(class_="table_indices"):
+    k=el
+
+var = list(k.children)[3]
+var2 = list(var.children)[2]
+print var2.get_text()
+
+
+l1=[]
+l2=[]
+file = open("Cost_.txt", "r")
+for line in file:
+    list=line.split()
+	l1.append(list[0])
+	l2.append(float(list[1]))
+
+mx=max(l2)
+mn=min(l2)
+l3=[]
+for k in l2:
+  p=((k-mn)/(mx-mn))*100
+  l3.append(p)
+
+file=open("crimeRate.txt","w")
+i=0
+for k in l1:
+  file.write(k+" "+str(l3[i])+"\n")
+  i=i+1
+
+file.close()
