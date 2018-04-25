@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-file=open("Major_cities.txt","r")
+file=open("C:\Users\hp\PycharmProjects\Palayan\Files\Major_cities.txt","r")
 file2 = open("Traffic.txt", "w")
 for line in file:
     line=line.rstrip()
@@ -13,3 +13,4 @@ for line in file:
     val= var2.get_text()
     val=val.lstrip()
     file2.write(line+" "+val+"\n")
+file2.close()
