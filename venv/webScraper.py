@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 file=open("C:\Users\hp\PycharmProjects\Palayan\Files\Major_cities.txt","r")
 file2 = open("Traffic.txt", "w")
 for line in file:
+    print line
     line=line.rstrip()
     page=requests.get("https://www.numbeo.com/traffic/in/"+line)
     soup = BeautifulSoup(page.content, 'html.parser')
