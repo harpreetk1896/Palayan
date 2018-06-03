@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from www.areavibes.com/tradewinds-tx/livability/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 09 Mar 2018 15:42:05 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head data-placement="w1w2w3w4w5">
+<style>
+       #map1 {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+
+  <script>
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    var pbjs = pbjs || {};
+    pbjs.que = pbjs.que || [];
+  </script>
+  <script async="async" src="assets/header.js"></script>
+  <script async="async" src="www.googletagservices.com/tag/js/gpt.js"></script>
+  <script async="async" src="ap.lijit.com/www/sovrn_beacon_standalone/sovrn_standalone_beacon9442.js?iid=13387859&amp;uid=areavibes" id="sBeacon"></script>
+
+  <meta charset="utf-8">
+  <title>Living In Tradewinds, TX - Tradewinds Livability Score</title>
+  <meta name="description" content="Discover what it's like living in Tradewinds, TX with the AreaVibes Livability Score. Find out where to live in and near Tradewinds, TX.">
+  <meta name="author" content="areavibes">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" type="text/css" href="assets/master.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:700%7cOpen+Sans:400,600">
+  <link rel="stylesheet" type="text/css" href="ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.min.css">
+
+  
+  <!--[if IE]><link rel="shortcut icon" href="/images/favicon.ico"><![endif]-->
+  <link rel="icon" href="images/favicon.png">
+
+</head>
+<body class="details liv" data-user="guest">
+<!--[if lt IE 9]>
+    <p class="bad-browser-msg">You are using an <strong>outdated</strong> browser; parts of the site may not function properly. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div class="section header-menu">
+  <div class="container">
+    <div class="row">
+      <div class="twelve columns">
+      	<a href="index.html" class="av-logo"><img alt="AreaVibes - The Best Places To Live" src="images/av-logo.png"></a>
+
+        <div class="hamburger">
+          <input type="checkbox" id="ham-trigger">
+          <label for="ham-trigger"><i></i><i></i><i></i></label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="section spaced-out">
+  <div class="container">
+    <div class="row">
+      <div class="twelve columns">
+        <div class="ablk ablk-wide" id="ablk-wide-b"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section spaced-out">
+  <div class="container">
+    <div class="row">
+      <div class="twelve columns teasers">
+        <a class="box" >
+          <span class="grade ndx5_4"><em>Cost of living</em></span>
+          <span class="fact">
+            Cost of living index is <b><?php
+  $handle = @fopen("data.txt", "r");
+    if ($handle) {
+       $i=0;
+       while (!feof($handle)) {
+          $entry_array = explode(" ",fgets($handle));
+          if ($i == 0) {
+           echo $entry_array[0];
+          //echo $crime," ";
+          break;
+      }
+    }
+  }
+?></b>
+          </span>
+        </a>
+        <a class="box" >
+          <span class="grade ndx5_0"><em>Crime</em></span>
+          <span class="fact">
+            Total crimes are <b><?php
+  $handle = @fopen("data.txt", "r");
+    if ($handle) {
+       $i=0;
+       while (!feof($handle)) {
+          $entry_array = explode(" ",fgets($handle));
+          if ($i == 1) {
+           echo $entry_array[0];
+          //echo $crime," ";
+          break;
+      }
+      $i=$i+1;
+    }
+  }
+?></b>
+          </span>
+        </a>
+        <a class="box" >
+          <span class="grade ndx5_0"><em>Traffic</em></span>
+          <span class="fact">
+            Traffic rate is <b><?php
+  $handle = @fopen("data.txt", "r");
+    if ($handle) {
+       $i=0;
+       while (!feof($handle)) {
+          $entry_array = explode(" ",fgets($handle));
+          if ($i == 2) {
+           echo $entry_array[0];
+          //echo $crime," ";
+          break;
+      }
+     $i=$i+1;
+    }
+  }
+?></b> 
+            </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="section spaced-out">
+  <div class="container">
+    <div class="row">
+      <div class="twelve columns">
+        <div class="ablk ablk-wide" id="ablk-wide-c"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="section spaced-out">
+  <div class="container">
+    <div class="row">
+      <div class="twelve columns">
+
+        <h1>Map of the city</h1>
+        <div class="amenities-map">
+
+           <!--<div class="map" id="js-am-map" data-lat="27.99499" data-lon="-97.26018"></div>-->
+           <div id="map1"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: <?php
+  $handle = @fopen("data.txt", "r");
+    if ($handle) {
+       $i=0;
+       while (!feof($handle)) {
+          $entry_array = explode(" ",fgets($handle));
+          if ($i == 3) {
+           echo $entry_array[0];
+          //echo $crime," ";
+          break;
+      }
+     $i=$i+1;
+    }
+  }
+?>, lng: <?php
+  $handle = @fopen("data.txt", "r");
+    if ($handle) {
+       $i=0;
+       while (!feof($handle)) {
+          $entry_array = explode(" ",fgets($handle));
+          if ($i == 4) {
+           echo $entry_array[0];
+          //echo $crime," ";
+          break;
+      }
+     $i=$i+1;
+    }
+  }
+?>};
+        var map = new google.maps.Map(document.getElementById('map1'), {
+          zoom: 6,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_pfGSZv6TqYx8FIFXuKha7iWpm0wLsJU &callback=initMap">
+    </script>
+
+         <!-- <div class="cats">
+            <em></em>
+            <div>
+              <label>Groceries<input type="checkbox" checked><i></i></label>
+              <label>Food &amp; Drink<input type="checkbox" checked><i></i></label>
+              <label>Shopping<input type="checkbox" checked><i></i></label>
+              <label>Coffee<input type="checkbox" checked><i></i></label>
+              <label>Schools<input type="checkbox" checked><i></i></label>
+              <label>Parks<input type="checkbox" checked><i></i></label>
+              <label>Libraries &amp; Books<input type="checkbox" checked><i></i></label>
+              <label>Entertainment<input type="checkbox" checked><i></i></label>
+              <label>Public Transit<input type="checkbox" checked><i></i></label>
+              <label>Fitness<input type="checkbox" checked><i></i></label>
+              <label>Hide all</label>
+            </div>
+          </div>-->
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="section spaced-out">
+  <div class="container">
+    <div class="row">
+      <div class="twelve columns">
+        <div class="ablk ablk-wide" id="ablk-wide-d"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Mirrored from www.areavibes.com/tradewinds-tx/livability/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 09 Mar 2018 15:42:05 GMT -->
+</html>
