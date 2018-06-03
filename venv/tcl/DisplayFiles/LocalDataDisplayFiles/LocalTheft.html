@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #map {
+        height: 500px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>Local Theft</h3>
+    <div id="map"></div>
+    <script>
+
+		var lati=[];
+		var lngi=[];
+		var val=[];
+		var loc=[];
+
+		fetch('Theft.txt')
+	  .then(response => response.text())
+	  .then(text => document.getElementById('myp').innerHTML = text)
+
+         var i=0
+	  setTimeout(function(){
+			var text = document.getElementById('myp').innerHTML;
+			var lines = text.split('\n');
+			document.getElementById('myp').innerHTML=" ";
+
+			for(var line = 0; line < lines.length-1; line++){
+			 var k=(lines[line]).split(',');
+			  lati[line]=k[1];
+			  lngi[line]=k[2];
+			  loc[line]=k[0]
+			  val[line]=k[3];
+			  console.log(i+" "+lati[line]+" "+lngi[line]+" "+loc[line]+" "+val[line]+" "+"\n");
+			  i=i+1
+			  }
+		}, 200);
+
+		function getIcon(text, fillColor, textColor, outlineColor) {
+		  if (!text) text = ''; //generic map dot
+		  var iconUrl = "http://chart.googleapis.com/chart?cht=d&chdp=mapsapi&chl=pin%27i\\%27[" + text + "%27-2%27f\\hv%27a\\]h\\]o\\" + fillColor + "%27fC\\" + textColor + "%27tC\\" + outlineColor + "%27eC\\Lauto%27f\\&ext=.png";
+		  return iconUrl;
+		}
+
+		  function rgbToHex(rgb) {
+		  var hex = Number(rgb).toString(16);
+		  if (hex.length < 2) {
+			   hex = "0" + hex;
+		  }
+		  return hex;
+		}
+
+      function initMap() {
+	  setTimeout(function(){
+	    var map = new google.maps.Map(document.getElementById('map'), {
+          zoom:11,
+          center: {lat:28.7041, lng:77.1025 }
+        });
+	    for(var line = 0; line < i; line++){
+
+	    var lt=parseFloat(lati[line]);
+		var lg=parseFloat(lngi[line]);
+
+        var uluru = {lat:lt , lng:lg };
+		var g=255-parseInt(val[line]*2.55);
+		console.log(g);
+        var myColor='FF'+rgbToHex(g)+'33';
+        var marker = new google.maps.Marker({
+          position: uluru,
+		  animation: google.maps.Animation.DROP,
+          map: map,
+		  title: loc[line],
+		  icon: getIcon(null, myColor, 'FF000F', '000000')
+        });
+		}
+
+      },300)
+	  }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap">
+    </script>
+
+	<img src="scale.png"  height="42" >
+	<p id="myp"> </p>
+  </body>
+</html>
+

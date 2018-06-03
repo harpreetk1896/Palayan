@@ -30,7 +30,8 @@ for line in file:
    conn_string = json.load(connection_file)
    r=conn_string['totalResults']
    file2.write(str(r))
-   
+
+#getting data through web scraping of major cities
 import requests
 file=open("Major_cities.txt","r")
 file2 = open("Traffic.txt", "w")
@@ -48,7 +49,7 @@ for line in file:
     val=val.lstrip()
 	file2.write(line+" "+val+"\n")
 
-https://www.numbeo.com/traffic/in/Kolkata
+"""https://www.numbeo.com/traffic/in/Kolkata
 
 page=requests.get("https://www.numbeo.com/traffic/in/Kolkata")
 from bs4 import BeautifulSoup
@@ -58,9 +59,9 @@ for el in soup.find_all(class_="table_indices"):
 
 var = list(k.children)[3]
 var2 = list(var.children)[2]
-print var2.get_text()
+print var2.get_text()"""
 
-
+#Scaling the results
 l1=[]
 l2=[]
 file = open("Cost_.txt", "r")

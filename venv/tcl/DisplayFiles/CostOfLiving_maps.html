@@ -9,7 +9,7 @@
     </style>
   </head>
   <body>
-    <h3>Crime Rate</h3>
+    <h3>Cost Of Living</h3>
     <div id="map"></div>
     <script>
 	
@@ -17,7 +17,7 @@
 		var lngi=[];
 		var val=[];
 		var loc=[];
-		fetch('crimeRatell.txt')
+		fetch('CostOfLiving.txt')
 	  .then(response => response.text())
 	  .then(text => document.getElementById('myp').innerHTML = text)
 	 
@@ -78,10 +78,10 @@
 	  }
     </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_pfGSZv6TqYx8FIFXuKha7iWpm0wLsJU &callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap">
     </script>
 	
-	<img src="sc.png"  height="42" > 
+	<img src="scale.png"  height="42" >
 	<p id="myp"> </p>
   </body>
 </html>
